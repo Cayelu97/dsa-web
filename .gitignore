@@ -1,0 +1,24 @@
+# Dependencias
+node_modules/
+jspm_packages/
+
+# Logs y bases locales de desarrollo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# IDEs y Editores
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Archivos de Sistema operativo
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store

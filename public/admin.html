@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSA - Panel de Control & CRM</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Core styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Admin Specific Styles -->
+  <style>
+    body {
+      background-color: #060910;
+    }
+    
+    .admin-container {
+      margin-top: 100px;
+      padding-bottom: 60px;
+    }
+
+    .admin-card {
+      background: var(--card-dark);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Tabs navigation */
+    .tab-bar {
+      display: flex;
+      gap: 1rem;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 2.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .tab-btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      border-radius: var(--radius-md);
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tab-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .tab-btn.active {
+      color: var(--brand-cyan);
+      background: rgba(6, 182, 212, 0.08);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    /* Admin tables */
+    .admin-table-container {
+      overflow-x: auto;
+      margin-top: 1.5rem;
+    }
+
+    .tbl-admin {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.8125rem;
+    }
+
+    .tbl-admin th {
+      padding: 1rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      border-bottom: 2px solid var(--border-color);
+      text-transform: uppercase;
+      font-size: 0.6875rem;
+      letter-spacing: 0.05em;
+    }
+
+    .tbl-admin td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: middle;
+    }
+
+    .tbl-admin tbody tr:hover {
+      background: rgba(255, 255, 255, 0.01);
+    }
+
+    /* Dropdowns in CRM status */
+    .status-select {
+      background: rgba(9, 13, 22, 0.8);
+      border: 1px solid var(--border-color);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 0.5rem;
+      border-radius: var(--radius-sm);
+      outline: none;
+      cursor: pointer;
+    }
+
+    .status-select.nuevo { border-color: var(--brand-blue); color: var(--brand-blue); }
+    .status-select.contacto { border-color: #fbbf24; color: #fbbf24; }
+    .status-select.vendido { border-color: var(--brand-green); color: var(--brand-green); }
+    .status-select.descartado { border-color: #ef4444; color: #ef4444; }
+
+    /* Actions buttons */
+    .action-btn-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .act-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      transition: var(--transition-fast);
+      border: 1px solid var(--border-color);
+    }
+
+    .act-btn-edit {
+      color: var(--brand-cyan);
+      background: rgba(6, 182, 212, 0.05);
+    }
+
+    .act-btn-edit:hover {
+      background: var(--brand-cyan);
+      color: var(--bg-dark);
+      border-color: var(--brand-cyan);
+    }
+
+    .act-btn-delete {
+      color: #ef4444;
+      background: rgba(239, 68, 68, 0.05);
+    }
+
+    .act-btn-delete:hover {
+      background: #ef4444;
+      color: #fff;
+      border-color: #ef4444;
+    }
+
+    /* Bullet point list builder */
+    .bullet-builder-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .bullet-list-preview {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .bullet-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.25rem 0.5rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    /* Lead Types badges */
+    .type-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.625rem;
+      font-weight: 700;
+      border-radius: 100px;
+      text-transform: uppercase;
+    }
+
+    .type-badge.trial { background: var(--brand-green-glow); color: var(--brand-green); }
+    .type-badge.contact { background: var(--brand-blue-glow); color: #60a5fa; }
+    .type-badge.click { background: rgba(236, 72, 153, 0.1); color: #f472b6; }
+
+    /* Login Modal Overlay overrides */
+    .login-overlay {
+      position: fixed;
+      inset: 0;
+      background: #090d16;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-box {
+      background: var(--card-dark);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 35px var(--brand-blue-glow);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Access Security Overlay -->
+  <div class="login-overlay" id="login-overlay">
+    <div class="login-box">
+      <div class="logo-box" style="margin: 0 auto 1.5rem auto; width: 50px; height: 50px; border-radius: var(--radius-md);">
+        <span class="text-white" style="font-weight: 900; font-size: 1.5rem;">D</span>
+      </div>
+      <h3 class="hero-title" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Panel de Seguridad DSA</h3>
+      <p class="hero-subtitle" style="font-size: 0.75rem; margin-bottom: 2rem;">Ingresá el PIN de administración de tu tienda para acceder al catálogo y base de datos CRM.</p>
+      
+      <div id="login-error" class="form-feedback error" style="margin-bottom:1rem;">PIN incorrecto. Reintente.</div>
+      
+      <form onsubmit="handleLoginSubmit(event)" style="display:flex; flex-direction:column; gap:1rem;">
+        <div class="form-group">
+          <input type="password" id="admin-pin-input" class="form-input" placeholder="Ingresá el PIN (ej: dsa123)" style="text-align:center; font-size: 1.25rem; letter-spacing: 0.2em;" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="padding:1rem;">
+          <i class="fas fa-lock-open"></i> Desbloquear Panel
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Glass Header -->
+  <header class="glass-header">
+    <div class="container nav-container">
+      <div class="logo-wrapper" onclick="window.location.href='/'">
+        <div class="logo-box">
+          <span class="text-white" style="font-weight: 900; font-size: 1.25rem;">D</span>
+        </div>
+        <div>
+          <span class="logo-text">DSA Admin</span>
+          <span class="logo-sub">Gestor & CRM local</span>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <a href="/" class="btn btn-secondary">
+          <i class="fas fa-arrow-left"></i> Volver a la Web
+        </a>
+        <button onclick="logoutAdmin()" class="btn btn-icon" title="Cerrar Sesión">
+          <i class="fas fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Admin Panel Content Container -->
+  <main class="container admin-container">
+    <div class="admin-card">
+      
+      <!-- Tabs Navigation -->
+      <nav class="tab-bar">
+        <button class="tab-btn active" onclick="switchTab('productos-tab', this)">
+          <i class="fas fa-cubes"></i> Catálogo de Productos
+        </button>
+        <button class="tab-btn" onclick="switchTab('config-tab', this)">
+          <i class="fas fa-sliders"></i> Configuración del Sitio
+        </button>
+        <button class="tab-btn" onclick="switchTab('crm-tab', this)">
+          <i class="fas fa-address-book"></i> CRM / Leads & Pedidos
+        </button>
+      </nav>
+
+      <!-- 1. PRODUCT CRUD TAB -->
+      <section class="tab-content active" id="productos-tab">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+          <div>
+            <h3 style="font-size:1.25rem; font-weight:800;">Catálogo de Soluciones</h3>
+            <p style="font-size:0.75rem; color:var(--text-muted);">Administrá los productos visibles en el catálogo de tu sitio web.</p>
+          </div>
+          <button onclick="openProductModal()" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Agregar Producto
+          </button>
+        </div>
+
+        <div class="admin-table-container">
+          <table class="tbl-admin">
+            <thead>
+              <tr>
+                <th>Icono</th>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Precio Mensual</th>
+                <th>Stock</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="admin-products-table-body">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 2. SITE CONFIGURATION TAB -->
+      <section class="tab-content" id="config-tab">
+        <div>
+          <h3 style="font-size:1.25rem; font-weight:800; margin-bottom:0.25rem;">Configurador Web</h3>
+          <p style="font-size:0.75rem; color:var(--text-muted); margin-bottom:2rem;">Modificá el número de WhatsApp receptor de pedidos, tus redes y textos generales.</p>
+        </div>
+
+        <div id="config-feedback" class="form-feedback" style="margin-bottom:1.5rem;"></div>
+
+        <form id="admin-config-form" onsubmit="saveSiteConfig(event)">
+          <h4 style="font-size:0.875rem; color:var(--brand-cyan); margin-bottom:1rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom: 1px solid var(--border-color); padding-bottom: 0.25rem;">
+            Información de Contacto & Redes
+          </h4>
+          <div class="form-grid" style="margin-bottom:2rem;">
+            <div class="form-group">
+              <label class="form-label" for="cfg-whatsapp">WhatsApp Receptor (Ej: 5491100000000)</label>
+              <input type="text" id="cfg-whatsapp" class="form-input" placeholder="Solo números con código de país" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cfg-email">Email de DSA</label>
+              <input type="email" id="cfg-email" class="form-input" placeholder="ejemplo@gmail.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cfg-instagram">Instagram Link</label>
+              <input type="url" id="cfg-instagram" class="form-input" placeholder="https://instagram.com/tu_perfil">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cfg-linkedin">LinkedIn Link</label>
+              <input type="url" id="cfg-linkedin" class="form-input" placeholder="https://linkedin.com/company/tu_perfil">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cfg-facebook">Facebook Link</label>
+              <input type="url" id="cfg-facebook" class="form-input" placeholder="https://facebook.com/tu_perfil">
+            </div>
+          </div>
+
+          <h4 style="font-size:0.875rem; color:var(--brand-cyan); margin-bottom:1rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom: 1px solid var(--border-color); padding-bottom: 0.25rem;">
+            Textos Principales (Landing Hero)
+          </h4>
+          <div style="display:flex; flex-direction:column; gap:1.25rem; margin-bottom:2rem;">
+            <div class="form-group">
+              <label class="form-label" for="cfg-promo">Banner Promocional Chico</label>
+              <input type="text" id="cfg-promo" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cfg-hero-title">Título Principal (Hero H1 - Soporta HTML)</label>
+              <input type="text" id="cfg-hero-title" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cfg-hero-sub">Subtítulo Hero (Descripción larga)</label>
+              <textarea id="cfg-hero-sub" class="form-textarea" required></textarea>
+            </div>
+          </div>
+
+          <h4 style="font-size:0.875rem; color:var(--brand-cyan); margin-bottom:1rem; text-transform:uppercase; letter-spacing:0.05em; border-bottom: 1px solid var(--border-color); padding-bottom: 0.25rem;">
+            Seguridad del Panel
+          </h4>
+          <div class="form-grid" style="margin-bottom:2.5rem;">
+            <div class="form-group">
+              <label class="form-label" for="cfg-pin">Nuevo PIN de Acceso</label>
+              <input type="password" id="cfg-pin" class="form-input" placeholder="Dejar en blanco para no modificar">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="config-save-btn" style="padding:1rem 2rem;">
+            <i class="fas fa-save"></i> Guardar Cambios Web
+          </button>
+        </form>
+      </section>
+
+      <!-- 3. CRM & LEADS TAB -->
+      <section class="tab-content" id="crm-tab">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+          <div>
+            <h3 style="font-size:1.25rem; font-weight:800;">CRM Local: Gestión de Prospectos</h3>
+            <p style="font-size:0.75rem; color:var(--text-muted);">Seguimiento de pedidos de WhatsApp, solicitudes de prueba de 14 días y contactos.</p>
+          </div>
+        </div>
+
+        <div class="admin-table-container">
+          <table class="tbl-admin">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Origen / Tipo</th>
+                <th>Cliente / Negocio</th>
+                <th>Datos Contacto</th>
+                <th>Detalle del Pedido / Mensaje</th>
+                <th>Estado Comercial</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody id="crm-leads-table-body">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Product Modal (Add/Edit) -->
+  <div class="modal-overlay" id="product-modal">
+    <div class="modal-container" style="max-width: 600px;">
+      <button class="modal-close" onclick="closeProductModal()">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="modal-header" style="margin-bottom:1.25rem;">
+        <span class="modal-tag">Administrador de Catálogo</span>
+        <h4 class="modal-title" id="prod-modal-title">Agregar Producto</h4>
+      </div>
+
+      <div id="product-modal-feedback" class="form-feedback" style="margin-bottom:1rem;"></div>
+
+      <form id="product-crud-form" onsubmit="submitProductCrud(event)">
+        <input type="hidden" id="prod-id">
+        
+        <div class="form-grid" style="margin-bottom:1rem;">
+          <div class="form-group">
+            <label class="form-label" for="prod-name">Nombre del Producto</label>
+            <input type="text" id="prod-name" class="form-input" placeholder="Ej: DSA Estética & Estilo" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prod-category">Categoría</label>
+            <select id="prod-category" class="form-input" style="background:#090d16; cursor:pointer;" required>
+              <option value="Sistemas Cloud">Sistemas Cloud</option>
+              <option value="Automatizaciones">Automatizaciones</option>
+              <option value="Servicios">Servicios</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prod-price">Precio Mensual ($ ARS)</label>
+            <input type="number" id="prod-price" class="form-input" placeholder="0 para 'Consultar'" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prod-stock">Stock Inicial (Disponibilidad)</label>
+            <input type="number" id="prod-stock" class="form-input" placeholder="Ej: 50" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prod-image">Icono FontAwesome</label>
+            <select id="prod-image" class="form-input" style="background:#090d16; cursor:pointer;" required>
+              <option value="fa-shop">Kiosco / Tienda (fa-shop)</option>
+              <option value="fa-user-doctor">Doctor / Salud (fa-user-doctor)</option>
+              <option value="fa-scissors">Peluquería / Tijeras (fa-scissors)</option>
+              <option value="fa-brain">Inteligencia Artificial (fa-brain)</option>
+              <option value="fa-laptop-code">Desarrollo Web (fa-laptop-code)</option>
+              <option value="fa-gears">Automatización / Engranajes (fa-gears)</option>
+              <option value="fa-cubes">Cajas / Cubos (fa-cubes)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prod-status">Estado inicial del software</label>
+            <select id="prod-status" class="form-input" style="background:#090d16; cursor:pointer;" required>
+              <option value="Activo">Activo (Disponible en producción)</option>
+              <option value="Beta">Fase Beta Abierta</option>
+              <option value="Desarrollo">En Desarrollo</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:1rem;">
+          <label class="form-label" for="prod-desc">Descripción Breve</label>
+          <textarea id="prod-desc" class="form-textarea" placeholder="Describí brevemente qué soluciona el producto..." style="min-height: 80px;" required></textarea>
+        </div>
+
+        <!-- Features Bullets Builder -->
+        <div class="form-group" style="margin-bottom:1.5rem;">
+          <label class="form-label">Características Destacadas (Bullets)</label>
+          <div class="bullet-builder-row">
+            <input type="text" id="prod-bullet-input" class="form-input" placeholder="Agrega una característica y dale clic a Añadir">
+            <button type="button" class="btn btn-secondary" onclick="addBulletToBuilder()" style="padding: 0.6rem 1rem;">
+              <i class="fas fa-plus"></i> Añadir
+            </button>
+          </div>
+          
+          <div class="bullet-list-preview" id="bullet-list-builder-preview">
+            <!-- Bullet points items will be rendered here -->
+          </div>
+        </div>
+
+        <div class="modal-footer" style="margin-top:1.5rem;">
+          <button type="button" class="btn btn-secondary btn-cancel" onclick="closeProductModal()">Cancelar</button>
+          <button type="submit" class="btn btn-primary" id="prod-submit-btn">Guardar Solución</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Custom Admin Script -->
+  <script src="js/admin.js"></script>
+</body>
+</html>

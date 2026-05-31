@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSA - Diseño de Soluciones Ágiles | Inteligencia & Software Cloud</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Design System CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="glass-header" id="main-header">
+    <div class="container nav-container">
+      <!-- Logo -->
+      <div class="logo-wrapper" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="logo-trigger">
+        <div class="logo-box">
+          <span class="text-white" style="font-weight: 900; font-size: 1.25rem;">D</span>
+        </div>
+        <div>
+          <span class="logo-text">DSA</span>
+          <span class="logo-sub">Soluciones Ágiles</span>
+        </div>
+      </div>
+
+      <!-- Desktop Nav Items -->
+      <nav class="nav-links">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#productos" class="nav-link">Sistemas Cloud</a>
+        <a href="#catalogo" class="nav-link">Catálogo</a>
+        <a href="#servicios" class="nav-link">Otros Servicios</a>
+        <a href="#calculadora" class="nav-link">Calcular Ahorro</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <!-- Desktop Action -->
+      <div class="nav-actions">
+        <a id="header-whatsapp-cta" href="https://wa.me/5491100000000?text=Hola%20DSA,%20me%20gustar%C3%ADa%20hacer%20una%20consulta%20sobre%20sus%20sistemas." 
+           target="_blank" class="btn btn-primary">
+          <i class="fab fa-whatsapp"></i> Consultar Ahora
+        </a>
+        <a href="/admin.html" class="btn-icon btn" title="Administración" id="admin-page-link">
+          <i class="fas fa-user-gear"></i>
+        </a>
+        <button class="mobile-menu-btn" id="mobile-menu-trigger">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu-drawer" id="mobile-drawer">
+      <a href="#inicio" class="nav-link">Inicio</a>
+      <a href="#productos" class="nav-link">Sistemas Cloud</a>
+      <a href="#catalogo" class="nav-link">Catálogo</a>
+      <a href="#servicios" class="nav-link">Otros Servicios</a>
+      <a href="#calculadora" class="nav-link">Calcular Ahorro</a>
+      <a href="#contacto" class="nav-link">Contacto</a>
+      <a href="/admin.html" class="nav-link"><i class="fas fa-user-gear"></i> Panel Admin</a>
+      <a id="mobile-whatsapp-cta" href="https://wa.me/5491100000000?text=Hola%20DSA,%20me%20gustar%C3%ADa%20hacer%20una%20consulta%20sobre%20sus%20sistemas." 
+         target="_blank" class="btn btn-primary" style="display:flex; width:100%;">
+        <i class="fab fa-whatsapp"></i> WhatsApp Directo
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="hero-section">
+    <!-- Glow effects -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+
+    <div class="container">
+      <!-- Badge -->
+      <div class="badge-wrapper">
+        <div class="badge" id="hero-badge">
+          <span class="dot-pulse"></span>
+          <span id="hero-promo-banner">Software Cloud Ultra-Accesible • Sin Costos Fijos Abusivos</span>
+        </div>
+      </div>
+
+      <!-- Heading -->
+      <h1 class="hero-title" id="hero-main-title">
+        Sistemas <span class="gradient-text">simples y potentes</span> para comercios y profesionales independientes.
+      </h1>
+
+      <!-- Subheading -->
+      <p class="hero-subtitle" id="hero-sub-description">
+        Diseño de Soluciones Ágiles (DSA). Creamos herramientas inteligentes de gestión que corren en la nube de alta velocidad, diseñadas para que pagues cuotas mensuales amigables y escalables.
+      </p>
+
+      <!-- CTAs -->
+      <div class="hero-ctas">
+        <a href="#catalogo" class="btn btn-primary">
+          <i class="fas fa-cubes"></i> Ver Catálogo
+        </a>
+        <a href="#contacto" class="btn btn-secondary">
+          Pedir Idea / Automatización
+        </a>
+      </div>
+
+      <!-- Trust Metrics -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-number">Pruebas Libres</div>
+          <div class="metric-label">14 Días sin tarjeta</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number cyan-glow">Planes Chicos</div>
+          <div class="metric-label">Mensualidad Súper Accesible</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">Nube Incluida</div>
+          <div class="metric-label">Cero costos ocultos</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">Soporte Humano</div>
+          <div class="metric-label">Contacto por WhatsApp</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Product & Interactive Simulator -->
+  <section id="productos" class="products-section section-padding">
+    <div class="container">
+      <!-- Header -->
+      <div class="section-header">
+        <span class="section-tag">Nuestras Soluciones Cloud</span>
+        <h2 class="section-title">Software pensado para tu realidad comercial</h2>
+        <p class="section-desc">
+          Impulsá tu rentabilidad diaria con sistemas modernos. Probá nuestra solución para kioscos y despensas hoy mismo, o pre-inscribite para nuestras próximas herramientas enfocadas en profesionales.
+        </p>
+      </div>
+
+      <!-- Layout: Details + Simulator -->
+      <div class="showcase-layout">
+        <!-- Pitch -->
+        <div class="product-pitch">
+          <div>
+            <span class="pitch-badge">
+              <i class="fas fa-rocket animate-pulse"></i> ¡DISPONIBLE EN PRODUCCIÓN!
+            </span>
+            <h3 class="pitch-title">DSA Kiosco & Despensa Inteligente</h3>
+            <p class="pitch-desc">
+              No requiere instalaciones complejas ni equipamientos costosos. Tu base de datos corre de manera segura en la nube. Ideal para despensas, kioscos, almacenes y pequeños negocios de barrio.
+            </p>
+
+            <ul class="pitch-bullets">
+              <li>
+                <span class="bullet-icon"><i class="fas fa-circle-check"></i></span>
+                <span><strong>Carga veloz para móviles:</strong> Interfaz adaptada al 100% para pantallas táctiles de celulares o tablets.</span>
+              </li>
+              <li>
+                <span class="bullet-icon"><i class="fas fa-circle-check"></i></span>
+                <span><strong>Cierre de caja y ganancias:</strong> Reportes simplificados para saber cuánto ganás cada jornada.</span>
+              </li>
+              <li>
+                <span class="bullet-icon"><i class="fas fa-circle-check"></i></span>
+                <span><strong>Cuentas corrientes (Fiados):</strong> Llevá el control minucioso de deudores de manera digital y segura.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Promo Action box -->
+          <div class="promo-box" style="margin-top: 2rem;">
+            <div class="promo-header">
+              <div>
+                <span class="promo-title-small">Plan Inicial Amigable</span>
+                <h4 class="promo-main-title">14 Días Gratis de Prueba</h4>
+              </div>
+              <div class="promo-price-box">
+                <span class="promo-price-label">Suscripción Simple</span>
+                <span class="promo-price">$15.000 ARS / mes</span>
+              </div>
+            </div>
+
+            <div class="promo-actions">
+              <button onclick="openTrialModal('DSA Kiosco Inteligente')" class="btn btn-primary" id="activate-trial-trigger">
+                <i class="fas fa-circle-play"></i> Probar 14 días
+              </button>
+              <a href="https://despensa-vert.vercel.app/" target="_blank" class="btn btn-secondary" style="border-color: var(--brand-cyan); color: var(--brand-cyan)">
+                <i class="fas fa-arrow-up-right-from-square"></i> Demo Real Online
+              </a>
+            </div>
+            <p class="promo-footer-text">*Podés pedir tu base de datos dedicada gratis por 14 días o probar la demo.</p>
+          </div>
+        </div>
+
+        <!-- Simulator -->
+        <div class="sim-container" id="simulator-container">
+          <div class="sim-badge-top">SIMULADOR INTERACTIVO RÁPIDO</div>
+
+          <div>
+            <div class="sim-header">
+              <h4 class="sim-title">
+                <span class="sim-indicator"></span>
+                Demo Local: Despensa "El Progreso"
+              </h4>
+              <p class="sim-desc">Probá simulando ventas y stock con los productos de la base de datos.</p>
+            </div>
+
+            <!-- KPIs -->
+            <div class="sim-kpis">
+              <div class="sim-kpi-card">
+                <span class="sim-kpi-label">Caja del Día</span>
+                <span class="sim-kpi-value green" id="sim-caja">$18.450 ARS</span>
+              </div>
+              <div class="sim-kpi-card">
+                <span class="sim-kpi-label">Ventas Hoy</span>
+                <span class="sim-kpi-value" id="sim-ventas-count">12</span>
+              </div>
+              <div class="sim-kpi-card">
+                <span class="sim-kpi-label">Stock Bajo</span>
+                <span class="sim-kpi-value red" id="sim-low-stock-count">1 item</span>
+              </div>
+            </div>
+
+            <!-- Sim operations -->
+            <div class="sim-workspace">
+              <!-- Quick sell column -->
+              <div class="sim-block">
+                <div class="sim-block-title">Venta Rápida de Prueba</div>
+                <div id="sim-quick-sell-list">
+                  <!-- Dynamically populated products to sell -->
+                </div>
+              </div>
+
+              <!-- Add to stock column -->
+              <div class="sim-block">
+                <div class="sim-block-title">Cargar Producto al Stock</div>
+                <div class="sim-form">
+                  <input type="text" id="sim-add-name" placeholder="Ej: Yerba Mate 1kg" class="sim-input">
+                  <div class="sim-input-row">
+                    <input type="number" id="sim-add-price" placeholder="Precio ($)" class="sim-input">
+                    <input type="number" id="sim-add-stock" placeholder="Stock" class="sim-input">
+                  </div>
+                  <button onclick="simAddProduct()" class="btn sim-add-btn" id="sim-add-submit">
+                    <i class="fas fa-plus"></i> Añadir a Tabla Stock
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live stock table -->
+            <div class="sim-table-wrapper">
+              <div class="sim-table-header">
+                <span class="sim-table-title">Tabla de Stock Local</span>
+                <span class="sim-table-tag">Simulador</span>
+              </div>
+              <div class="sim-table-scroll">
+                <table class="sim-table">
+                  <thead>
+                    <tr>
+                      <th>Producto</th>
+                      <th>Precio</th>
+                      <th>Stock</th>
+                    </tr>
+                  </thead>
+                  <tbody id="sim-table-body">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Console log -->
+          <div class="sim-console">
+            <div class="sim-console-text">
+              <i class="fas fa-terminal sim-console-icon"></i>
+              <span id="sim-console-log">Esperando operaciones de simulación...</span>
+            </div>
+            <button onclick="resetSimulator()" class="sim-reset-btn" id="sim-reset-trigger">
+              <i class="fas fa-undo"></i> Reiniciar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dynamic Catalog Section (Dinamically reads and displays all products) -->
+  <section id="catalogo" class="section-padding">
+    <div class="container catalog-container">
+      <!-- Section Header -->
+      <div class="catalog-header">
+        <div>
+          <span class="section-tag">Catálogo Autoadministrable</span>
+          <h2 class="section-title" style="margin-bottom:0.5rem;">Explorá nuestros productos y servicios</h2>
+          <p class="section-desc">Cargá productos al carrito de compras para solicitar cotizaciones directas a nuestro WhatsApp.</p>
+        </div>
+        <!-- Categories filter -->
+        <div class="catalog-filters" id="catalog-filters-container">
+          <button class="filter-btn active" onclick="filterCatalog('Todos')">Todos</button>
+          <button class="filter-btn" onclick="filterCatalog('Sistemas Cloud')">Sistemas Cloud</button>
+          <button class="filter-btn" onclick="filterCatalog('Automatizaciones')">Automatizaciones</button>
+          <button class="filter-btn" onclick="filterCatalog('Servicios')">Servicios</button>
+        </div>
+      </div>
+
+      <!-- Catalog Grid (Dynamic) -->
+      <div class="catalog-grid" id="catalog-items-grid">
+        <!-- Rendered dynamically by app.js -->
+        <div style="grid-column: span 3; text-align: center; color: var(--text-muted); padding: 4rem;">
+          <i class="fas fa-circle-notch fa-spin" style="font-size: 2rem; margin-bottom: 1rem; color: var(--brand-cyan)"></i>
+          <p>Cargando catálogo de soluciones...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="servicios" class="services-section section-padding">
+    <div class="glow-orb orb-1" style="top: 30%"></div>
+    <div class="container">
+      <!-- Header -->
+      <div class="section-header">
+        <span class="section-tag">Automatizaciones & Desarrollo Custom</span>
+        <h2 class="section-title">¿Qué más podemos agilizar en tu negocio?</h2>
+        <p class="section-desc">
+          No solo instalamos sistemas enlatados. Analizamos tus flujos de trabajo diarios y creamos automatizaciones para que tu negocio o consultorio ande solo mientras vos descansás.
+        </p>
+      </div>
+
+      <!-- Grid -->
+      <div class="services-grid">
+        <!-- Service Card 1 -->
+        <div class="service-card">
+          <div>
+            <div class="service-icon-box">
+              <i class="fas fa-gears"></i>
+            </div>
+            <h4 class="service-title">Automatización de Procesos</h4>
+            <p class="service-desc">
+              Conectamos tus planillas de Google Sheets con avisos de WhatsApp, alertas automáticas de cobro, emails masivos estructurados o sistemas de turnos sin costos de infraestructura pesada.
+            </p>
+          </div>
+          <a id="service-wa-link-1" href="https://wa.me/5491100000000?text=Hola%20DSA,%20me%20interesa%20automatizar%20un%20proceso%20en%20mi%20negocio." 
+             target="_blank" class="service-link">
+            Consultar Automatización <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="service-card">
+          <div>
+            <div class="service-icon-box">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h4 class="service-title">Sitios Web & Catálogos</h4>
+            <p class="service-desc">
+              Creamos páginas web ultrarrápidas, optimizadas para móviles y preparadas para captar leads. Catálogos autoadministrables para que el cliente cargue su carrito y te lo mande ordenado a tu celular.
+            </p>
+          </div>
+          <a id="service-wa-link-2" href="https://wa.me/5491100000000?text=Hola%20DSA,%20quiero%20crear%20mi%20sitio%20web%20o%20tienda%20online." 
+             target="_blank" class="service-link">
+            Quiero mi Sitio Web <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="service-card">
+          <div>
+            <div class="service-icon-box">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h4 class="service-title">Soporte Inteligente con IA</h4>
+            <p class="service-desc">
+              ¿Muchos chats repetidos con preguntas frecuentes? Entrenamos y vinculamos un asistente inteligente con tu catálogo para resolver dudas de clientes y filtrar leads calificados antes de que lleguen a vos.
+            </p>
+          </div>
+          <a id="service-wa-link-3" href="https://wa.me/5491100000000?text=Hola%20DSA,%20me%20interesa%20integrar%20un%20asistente%20con%20IA." 
+             target="_blank" class="service-link">
+            Consultar por IA <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cost & Productivity Calculator -->
+  <section id="calculadora" class="calculator-section section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Calculadora de Productividad</span>
+        <h2 class="section-title">¿Cuánto tiempo y dinero estás perdiendo?</h2>
+        <p class="section-desc">Hacé la cuenta de lo que te cuesta el descontrol de stock, el fiado que no anotás y las horas de cierre semanal.</p>
+      </div>
+
+      <div class="calc-box">
+        <div class="calc-grid">
+          <!-- Inputs -->
+          <div class="calc-inputs">
+            <!-- Slider 1 -->
+            <div class="calc-group">
+              <label class="calc-label" for="calc-hours">
+                <span>Horas semanales de control manual</span>
+                <span class="calc-label-val" id="calc-hours-val">10 horas</span>
+              </label>
+              <input type="range" id="calc-hours" min="2" max="40" value="10" class="calc-range" oninput="calculateSavings()">
+              <span class="calc-subtext">Tiempo de conteo de stock, cuadernos de fiados y cálculos de caja.</span>
+            </div>
+
+            <!-- Slider 2 -->
+            <div class="calc-group">
+              <label class="calc-label" for="calc-loss">
+                <span>Pérdidas de stock o deudas olvidadas</span>
+                <span class="calc-label-val" id="calc-loss-val">$12.000 ARS</span>
+              </label>
+              <input type="range" id="calc-loss" min="0" max="100000" step="5000" value="12000" class="calc-range" oninput="calculateSavings()">
+              <span class="calc-subtext">Artículos vencidos, faltantes de caja o fiados no registrados.</span>
+            </div>
+
+            <!-- Slider 3 -->
+            <div class="calc-group">
+              <label class="calc-label" for="calc-rate">
+                <span>Valor estimado de tu hora laboral</span>
+                <span class="calc-label-val" id="calc-rate-val">$2.500 ARS</span>
+              </label>
+              <input type="range" id="calc-rate" min="1000" max="10000" step="500" value="2500" class="calc-range" oninput="calculateSavings()">
+              <span class="calc-subtext">¿Cuánto valorás tu hora como emprendedor o profesional?</span>
+            </div>
+          </div>
+
+          <!-- Results -->
+          <div class="calc-results-card">
+            <div>
+              <span class="calc-res-label">Ahorro Mensual con DSA</span>
+              <div class="calc-res-val" id="calc-total-savings">$112.000 / mes</div>
+              <p class="calc-res-desc">
+                Utilizar nuestros sistemas en la nube minimiza las deudas incobrables y reduce las horas perdidas un 85%. Además, tu mensualidad de DSA es infinitamente inferior a estas pérdidas.
+              </p>
+            </div>
+            <a id="calculator-whatsapp-cta" href="https://wa.me/5491100000000?text=Hola%20DSA,%20hice%20el%20c%C3%A1lculo%20de%20ahorros%20en%20la%20calculadora%20y%20me%20gustar%C3%ADa%20ver%20c%C3%B3mo%20puedo%20digitalizar%20mi%20negocio." 
+               target="_blank" class="btn btn-success">
+              <i class="fab fa-whatsapp"></i> Optimizar mi Negocio Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section & CRM integration -->
+  <section id="contacto" class="contact-section section-padding">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Info Column -->
+        <div class="contact-info-col">
+          <h3>Consultas & Soporte Directo</h3>
+          <h4>Digitalizá tu comercio sin costos sorpresa</h4>
+          <p>
+            Sabemos que cada centavo cuenta. Por eso creamos sistemas modulares, rápidos, fáciles de manejar y con suscripciones mensuales adaptadas al bolsillo de los pequeños comercios.
+          </p>
+
+          <div class="contact-details">
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
+              <span id="config-email">disenodesolucionesagiles@gmail.com</span>
+            </div>
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon"><i class="fab fa-whatsapp"></i></div>
+              <span id="config-phone">+54 9 11 0000 0000 (Soporte Directo)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Column -->
+        <div class="contact-form-col">
+          <h4 class="form-title">Envianos tu consulta</h4>
+          
+          <div id="contact-feedback" class="form-feedback"></div>
+
+          <form id="crm-contact-form" onsubmit="submitContactForm(event)">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="contact-name">Nombre Completo</label>
+                <input type="text" id="contact-name" class="form-input" placeholder="Ej: Juan Pérez" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contact-phone">Teléfono / WhatsApp</label>
+                <input type="tel" id="contact-phone" class="form-input" placeholder="Ej: 1123456789" required>
+              </div>
+              <div class="form-group form-group-full">
+                <label class="form-label" for="contact-email">Correo Electrónico</label>
+                <input type="email" id="contact-email" class="form-input" placeholder="juan@example.com" required>
+              </div>
+              <div class="form-group form-group-full">
+                <label class="form-label" for="contact-message">Mensaje / Idea a Desarrollar</label>
+                <textarea id="contact-message" class="form-textarea" placeholder="Contanos qué hace tu negocio y qué necesitas automatizar o digitalizar..." required></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" id="contact-submit-btn">
+              <i class="fas fa-paper-plane"></i> Enviar Mensaje
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo-wrapper">
+            <div class="logo-box">
+              <span class="text-white" style="font-weight: 900; font-size: 1rem;">D</span>
+            </div>
+            <div>
+              <span class="logo-text" style="font-size: 1.15rem;">DSA</span>
+            </div>
+          </div>
+          <p class="footer-brand-desc">
+            Diseño de Soluciones Ágiles. Impulsando la rentabilidad diaria de comercios y profesionales independientes con tecnología simple, en la nube y súper pagable.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-links-col">
+            <h5>Navegación</h5>
+            <ul>
+              <li><a href="#inicio">Inicio</a></li>
+              <li><a href="#productos">Sistemas Cloud</a></li>
+              <li><a href="#catalogo">Catálogo</a></li>
+              <li><a href="#servicios">Servicios</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-col">
+            <h5>Legal</h5>
+            <ul>
+              <li><a href="#">Términos de Uso</a></li>
+              <li><a href="#">Privacidad</a></li>
+              <li><a href="/admin.html"><i class="fas fa-lock"></i> Acceso Admin</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 DSA - Diseño de Soluciones Ágiles. Todos los derechos reservados.</p>
+        
+        <div class="social-icons" id="footer-social-icons">
+          <!-- Populated dynamically -->
+          <a href="#" target="_blank" class="social-icon-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" target="_blank" class="social-icon-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" target="_blank" class="social-icon-btn"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shopping Cart Floating Drawer -->
+  <div class="cart-backdrop" id="cart-backdrop" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h4 class="cart-title">
+        <i class="fas fa-shopping-cart"></i> Tu Pedido
+      </h4>
+      <button class="cart-close-btn" onclick="toggleCart()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Items List -->
+    <div class="cart-items" id="cart-items-container">
+      <!-- Empty state template -->
+      <div class="cart-empty-state">
+        <i class="fas fa-cart-arrow-down cart-empty-icon"></i>
+        <p>Tu carrito está vacío</p>
+        <button class="btn btn-secondary" onclick="toggleCart()" style="padding: 0.5rem 1rem; font-size: 0.75rem;">Ver Catálogo</button>
+      </div>
+    </div>
+
+    <!-- Summary & Checkout -->
+    <div class="cart-summary">
+      <div class="cart-total-row">
+        <span>Total de Suscripción:</span>
+        <span class="cart-total-val" id="cart-total-val">$0 ARS / mes</span>
+      </div>
+      <button onclick="checkoutWhatsApp()" class="btn btn-success" id="cart-checkout-btn">
+        <i class="fab fa-whatsapp"></i> Enviar Pedido por WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- Floating Cart Trigger -->
+  <button class="floating-cart-trigger" id="floating-cart-btn" onclick="toggleCart()">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-badge-count" id="cart-count">0</span>
+  </button>
+
+  <!-- Trial Request Modal -->
+  <div class="modal-overlay" id="trial-modal">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeTrialModal()">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <!-- View 1: Form -->
+      <div id="modal-form-view">
+        <div class="modal-header">
+          <span class="modal-tag">PROCESO DE ALTA ÁGIL</span>
+          <h4 class="modal-title" id="trial-modal-title">Iniciar Prueba de 14 Días</h4>
+          <p class="modal-desc">Ingresá tus datos para dar de alta tu entorno de pruebas dedicado en nuestros servidores seguros de manera totalmente gratuita.</p>
+        </div>
+
+        <div id="modal-error-feedback" class="form-feedback error"></div>
+
+        <form class="modal-form" onsubmit="submitTrialForm(event)">
+          <div class="form-group">
+            <label class="form-label" for="trial-name">Nombre Completo</label>
+            <input type="text" id="trial-name" class="form-input" placeholder="Ej: Lucas Martínez" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="trial-business">Nombre de tu Negocio / Consultorio</label>
+            <input type="text" id="trial-business" class="form-input" placeholder="Ej: Peluquería Estilo Único" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="trial-phone">WhatsApp de contacto</label>
+            <input type="tel" id="trial-phone" class="form-input" placeholder="Ej: 1123456789" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="trial-email">Correo Electrónico</label>
+            <input type="email" id="trial-email" class="form-input" placeholder="lucas@example.com" required>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-cancel" onclick="closeTrialModal()">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Crear Entorno Cloud</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- View 2: Processing Simulator -->
+      <div id="modal-processing-view" class="modal-loading-view">
+        <div class="modal-spinner"></div>
+        <div>
+          <h4 class="modal-title">Procesando solicitud...</h4>
+          <p class="modal-desc" style="max-width: 320px; margin: 0.25rem auto 0 auto;">Sincronizando con el servidor central de DSA y registrando tus credenciales.</p>
+        </div>
+        <div class="modal-console-logs">
+          <div id="console-l1">&gt; Conectando con el servidor seguro...</div>
+          <div id="console-l2" class="console-line muted">&gt; Generando base de datos privada...</div>
+          <div id="console-l3" class="console-line dim">&gt; Activando canal de soporte prioritario...</div>
+        </div>
+      </div>
+
+      <!-- View 3: Success -->
+      <div id="modal-success-view" class="modal-success-view">
+        <div class="modal-success-icon">
+          <i class="fas fa-check-double"></i>
+        </div>
+        <div>
+          <h4 class="modal-success-title">¡Entorno de Prueba Reservado!</h4>
+          <p class="modal-success-desc">
+            Hemos provisionado la base de datos de prueba para <strong id="success-biz-name">tu negocio</strong> de manera segura.
+          </p>
+          <p class="modal-success-desc" style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--text-muted-dark)">
+            Para recibir los datos de acceso y tu panel administrador en vivo, hacé click para notificarnos por WhatsApp.
+          </p>
+        </div>
+        <a id="modal-whatsapp-success-btn" href="#" target="_blank" class="btn btn-success">
+          <i class="fab fa-whatsapp"></i> SOLICITAR ACCESOS POR WHATSAPP
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom App JS -->
+  <script src="js/app.js"></script>
+</body>
+</html>

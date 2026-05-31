@@ -1,0 +1,47 @@
+[
+  {
+    "id": "prod_1",
+    "name": "DSA Kiosco & Despensa Inteligente",
+    "description": "No requiere instalaciones complejas ni equipamientos costosos. Tu base de datos corre de manera segura en la nube. Ideal para despensas, kioscos, almacenes y pequeños negocios de barrio.",
+    "price": 50000,
+    "category": "Sistemas Cloud",
+    "stock": 99,
+    "image": "fa-shop",
+    "status": "activo",
+    "bullets": [
+      "Carga veloz para móviles: Interfaz adaptada al 100% para pantallas táctiles de celulares o tablets.",
+      "Cierre de caja y ganancias: Reportes simplificados para saber cuánto ganás cada jornada.",
+      "Cuentas corrientes (Fiados): Llevá el control minucioso de deudores de manera digital y segura."
+    ]
+  },
+  {
+    "id": "prod_2",
+    "name": "DSA Consultorios Inteligentes",
+    "description": "Un sistema para consultorios médicos particulares e independientes. Agendamiento visual de pacientes, ficha médica digital ágil de acceso rápido y recordatorios automáticos de turnos directos al celular.",
+    "price": 20000,
+    "category": "Sistemas Cloud",
+    "stock": 50,
+    "image": "fa-user-doctor",
+    "status": "beta",
+    "bullets": [
+      "Agenda médica interactiva y limpia para doctores y secretarios.",
+      "Ficha clínica digital y segura en la nube cumpliendo estándares de privacidad.",
+      "Alertas de inasistencia y confirmaciones de turnos automáticas."
+    ]
+  },
+  {
+    "id": "prod_3",
+    "name": "DSA Estética & Estilo",
+    "description": "Pensado para centros de estética, peluquerías, barberías y salones de manicuría. Controlá la agenda de turnos por profesional, registrá los servicios prestados, comisiones y llevá tu caja sin cuadernos.",
+    "price": 18000,
+    "category": "Sistemas Cloud",
+    "stock": 0,
+    "image": "fa-scissors",
+    "status": "desarrollo",
+    "bullets": [
+      "Turnero para múltiples especialistas, sillones o cabinas.",
+      "Control de comisiones y servicios cobrados por profesional en tiempo real.",
+      "Recordatorios automáticos por WhatsApp y reservas online rápidas."
+    ]
+  }
+]
